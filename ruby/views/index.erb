@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+    }
+
+    .teaser,
+    .column {
+      font-size: 2rem;
+      text-align: center;
+      line-height: 3;
+      background: #ebeff2;
+      border-radius: 10px;
+      margin: 10px 5px;
+    }
+
+    .grid {
+      display: flex;
+    }
+
+    .column {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <%= partial(story['data']['story']['content']['component'].to_sym, locals: {blok: story['data']['story']['content']}) %>
+  <script src="//app.storyblok.com/f/storyblok-latest.js?t=jdS0oLvdm3Hoj8OILqOcRQtt"></script>
+</body>
+</html>

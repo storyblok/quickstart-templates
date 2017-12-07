@@ -1,7 +1,9 @@
-# Storyblok Demo using plain JS
+# Storyblok Demo using Vuejs
 
+## How to get started?
 ```
 npm install && npm run start
 ```
 
-Will start a server at http://localhost:8080/
+This will start a server at http://localhost:8080/  
+Go to the storylok app and insert this url as location

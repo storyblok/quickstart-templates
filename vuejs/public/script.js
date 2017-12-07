@@ -1,3 +1,8 @@
+Vue.component('page', {
+  template: `<component :key="blok._uid" v-for="blok in story.content.body" :blok="blok" :is="blok.component"></component>`,
+  props: ['blok']
+})
+
 Vue.component('teaser', {
   template: `<div v-editable="blok" class="teaser">{{ blok.headline }}</div>`,
   props: ['blok']
@@ -15,7 +20,7 @@ Vue.component('feature', {
 
 new Vue({
   el: '#app',
-  template: `<div><component :key="blok._uid" v-for="blok in story.content.body" :blok="blok" :is="blok.component"></component></div>`,
+  template: `<div><component :blok="story.content" :is="story.content.component"></component></div>`,
   data() {
     return {
       story: {
@@ -26,12 +31,6 @@ new Vue({
     }
   },
   created: function() {
-    this.$storyblok.init({
-      accessToken: 'jdS0oLvdm3Hoj8OILqOcRQtt',
-      endPoint: 'localhost:3400',
-      customParent: 'http://localhost:3400'
-    })
-    
     this.$storyblok.on('change', () => { this.loadStory('draft') })
     this.$storyblok.on('published', () => { this.loadStory('draft') })
 

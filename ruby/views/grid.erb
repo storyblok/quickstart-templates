@@ -1,0 +1,6 @@
+<%= blok['_editable'] %>
+<div class="grid">
+  <% for item in blok['columns'] %>
+    <%= partial(item['component'].to_sym, locals: {blok: item}) %>
+  <% end %>
+</div>

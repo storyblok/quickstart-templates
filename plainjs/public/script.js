@@ -1,5 +1,28 @@
+var renderBlocks = null
 var components = {}
+
+// Get the JSON of "home" from Storyblok
+var request = new XMLHttpRequest()
+request.open('GET', 'https://api.storyblok.com/v1/cdn/stories/home?version=draft&token=jdS0oLvdm3Hoj8OILqOcRQtt', true)
+request.onload = function() {
+  var data = JSON.parse(request.responseText)
+  renderBlocks(data)
+}
+request.send()
+
+// Simple rendering engine
+renderBlocks = function(data) {
+  var blok = data.story.content
+  document.body.insertAdjacentHTML('beforeend', components[blok.component](blok))
+
+  // Enter editmode after rendering
+  window.storyblok.tryEditmode()
+}
+
 components = {
+  page(blok) {
+    return blok.body.map((column) => { return components[column.component](column) }).join('')
+  },
   teaser(blok) {
     return `${blok._editable}
       <div class="teaser">${blok.headline}</div>`
@@ -17,19 +40,3 @@ components = {
       </div>`
   }
 }
-
-// Simple rendering engine
-var renderBlocks = function(data) {
-  data.story.content.body.forEach((blok) => {
-    document.body.insertAdjacentHTML('beforeend', components[blok.component](blok))
-  })
-}
-
-// Get the JSON of "home" from Storyblok
-var request = new XMLHttpRequest()
-request.open('GET', 'http://localhost:3001/v1/cdn/stories/home?version=draft&token=rQwr7Gf2LiZv2HDmyRuNrwtt', true)
-request.onload = function() {
-  var data = JSON.parse(request.responseText)
-  renderBlocks(data)
-}
-request.send()

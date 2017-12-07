@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>{{ story.name }} - Storyblok</title>
+
+  <link rel="stylesheet" type="text/css" href="/public/styles.css">
 </head>
 <body>
   {{{body}}}
@@ -22,6 +24,7 @@
         url: '/clear_cache'
       })
       .done(function() {
+        window.location.reload(true)
         console.log('cache cleared!')
       })
       .fail(function() {
