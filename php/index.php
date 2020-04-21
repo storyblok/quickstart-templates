@@ -82,7 +82,7 @@ $slug = empty($path) ? 'home' : $_SERVER['REQUEST_URI'];
 
 $client = new \Storyblok\Client('jdS0oLvdm3Hoj8OILqOcRQtt');
 $client->getStoryBySlug($slug);
-$response = $client->getStoryContent();
+$response = $client->getBody();
 
 renderBlocks($response);
 
