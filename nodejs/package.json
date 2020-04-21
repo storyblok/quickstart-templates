@@ -12,7 +12,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
-    "marked": "^0.3.6",
+    "marked": "^0.3.18",
     "storyblok-node-client": "^1.0.0"
   }
 }
