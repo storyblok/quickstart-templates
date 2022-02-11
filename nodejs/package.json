@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
-    "express-handlebars": "^3.0.0",
+    "express-handlebars": "^5.3.1",
     "marked": "^0.3.6",
     "storyblok-node-client": "^1.0.0"
   }
