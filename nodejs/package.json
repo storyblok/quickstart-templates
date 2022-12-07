@@ -10,7 +10,7 @@
   "author": "Alexander Feiglstorfer <delooks@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "marked": "^0.3.6",
     "storyblok-node-client": "^1.0.0"
